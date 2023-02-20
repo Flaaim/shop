@@ -1,0 +1,6 @@
+{
+    "autoload": {
+        "wfm\\": "vendor/wfm",
+        "app\\": "app"
+    }
+}
