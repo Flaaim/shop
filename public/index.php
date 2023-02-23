@@ -2,8 +2,10 @@
 
 require_once(dirname(__DIR__) . '/config/init.php');
 
-use Wfm\Registry;
+use Wfm\App;
 
+$app = new App();
+//echo $test;
 
-
-var_dump("Hello!");
+throw new Exception('Ошибочка', 500);
+//var_dump(App::$app->getProperties());
