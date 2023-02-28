@@ -1,11 +1,12 @@
 <?php
 
 require_once(dirname(__DIR__) . '/config/init.php');
-
+require_once HELPERS . "/functions.php";
+require_once(CONFIG . "/routes.php");
 use Wfm\App;
 
 $app = new App();
-//echo $test;
+echo "Hello";
 
-throw new Exception('Ошибочка', 500);
+
 //var_dump(App::$app->getProperties());

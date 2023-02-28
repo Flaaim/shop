@@ -4,6 +4,7 @@ namespace Wfm;
 
 use Wfm\Registry;
 use Wfm\ErrorHandler;
+use Wfm\Router;
 
 class App
 {
@@ -11,9 +12,11 @@ class App
 
     public function __construct()
     {
+        $query = trim(urldecode($_SERVER['REQUEST_URI']), '/');
         self::$app = Registry::getInstance();
         $this->getParams();
         new ErrorHandler();
+        Router::dispatch($query);
     }
     public function getParams()
     {
