@@ -23,7 +23,7 @@ class Router
     {
         if($url){
             $params = explode('&', $url, 2);
-            debug($params);
+            
             
             return rtrim($params[0], '/');
             
@@ -44,12 +44,15 @@ class Router
             
             if(class_exists($controller)){
                 $controllerObject = new $controller(self::$route);
+                $model = $controllerObject->getModel();
+
+
                 $action = self::lowerCamelCase(self::$route['action'].'Action');
                 if(method_exists($controllerObject, $action)){
                     $controllerObject->$action();
                 }
             } else{
-                throw(new \Exception("Контроллер не найден"));
+                throw(new \Exception("Контроллер {$controller} не найден"));
             }
         }else{
             throw(new \Exception("Страница не найдена"));

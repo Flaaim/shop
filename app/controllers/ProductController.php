@@ -2,8 +2,9 @@
 
 namespace app\controllers;
 
+use Wfm\Controller;
 
-class ProductController
+class ProductController extends Controller
 {
 
 }
