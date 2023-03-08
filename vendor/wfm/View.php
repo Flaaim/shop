@@ -61,4 +61,16 @@ class View
         debug($logs);
         }
     }
+    public function getPart($file, $data = '')
+    {
+        if(is_array($data)){
+            extract($data);
+        }
+        $file = APP . "/views/parts/{$file}.php";
+        if(is_file($file)){
+            require $file;
+        } else {
+            echo "File {$file} not found...";
+        }
+    }
 }   
