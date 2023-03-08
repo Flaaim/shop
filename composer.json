@@ -4,5 +4,8 @@
             "Wfm\\": "vendor/wfm",
             "App\\": "app"
         }
+    },
+    "require": {
+        "gabordemooij/redbean": "^v5.7.3"
     }
 }
