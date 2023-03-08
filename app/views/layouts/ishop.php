@@ -16,3 +16,4 @@ use Wfm\View;
     <?= $this->content ?>
 </body>
 </html>
+    <?= $this->getDbLogs() ?>
