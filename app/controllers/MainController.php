@@ -8,6 +8,6 @@ class MainController extends Controller
 {
     public function indexAction()
     {
-        echo __METHOD__;    
+        $this->setMeta('Тестовый заголовок', 'Тестовое описание', 'Тестовые ключевые слова');
     }
 }

@@ -44,12 +44,12 @@ class Router
             
             if(class_exists($controller)){
                 $controllerObject = new $controller(self::$route);
-                $model = $controllerObject->getModel();
-
+                $model = $controllerObject->getModel();  
 
                 $action = self::lowerCamelCase(self::$route['action'].'Action');
                 if(method_exists($controllerObject, $action)){
                     $controllerObject->$action();
+                    $controllerObject->getView();
                 }
             } else{
                 throw(new \Exception("Контроллер {$controller} не найден"));
@@ -63,13 +63,16 @@ class Router
         foreach(self::$routes as $pattern => $route){
            if(preg_match("#{$pattern}#", $url, $matches)){   
                 foreach($matches as $key => $v){
+                    
                     if(is_string($key)){
+                        
                         $route[$key] = $v; 
                     }
                     if(empty($route['action'])){
                         $route['action'] = 'index';
                     }
                 }
+                
                 if(!isset($route['admin_prefix'])){
                     $route['admin_prefix'] = '';
                 }else{
@@ -79,7 +82,7 @@ class Router
                 $route['controller'] = self::upperCamelCase($route['controller']);
                 $route['action'] = self::lowerCamelCase($route['action']);
                 self::$route = $route;
-                debug(self::$route);
+                
                 return true;
             }
         }

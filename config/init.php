@@ -9,7 +9,7 @@ define("HELPERS", ROOT . "/vendor/wfm/helpers");
 define("CACHE", ROOT . "/tmp/cache");
 define("LOGS", ROOT . "/tmp/logs");
 define("CONFIG", ROOT . "/config");
-define("LAYOUT", ROOT . "/ishop");
+define("LAYOUT", "ishop");
 define("PATH", "http://ishop.test");
 define("ADMIN", "http://ishop.test/admin");
 define("NO_IMAGE", "uploads/no_image.jpg");

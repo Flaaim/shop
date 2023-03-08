@@ -6,7 +6,7 @@ require_once(CONFIG . "/routes.php");
 use Wfm\App;
 
 $app = new App();
-echo "Hello";
+
 
 
 //var_dump(App::$app->getProperties());
