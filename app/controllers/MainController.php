@@ -1,15 +1,24 @@
 <?php
 
-namespace app\controllers;
+namespace App\controllers;
 
-use Wfm\Controller;
+use App\controllers\AppController;
+use RedBeanPHP\R;
 
-class MainController extends Controller
+class MainController extends AppController
 {
+
+    public function __construct($route)
+    {
+        parent::__construct($route);
+    }
+
     public function indexAction()
     {
-        $this->setMeta('Тестовый заголовок', 'Тестовое описание', 'Тестовые ключевые слова');
-        $names = $this->model->get_names();
-        $this->setData(['names' => $names]);
+        $slides = R::findAll('slider');
+        $products = $this->model->get_hits(1, 3);
+        
+        $this->setData(compact('slides', 'products'));
+        
     }
 }

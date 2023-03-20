@@ -3,7 +3,10 @@
 use Wfm\View;
 
 ?>
-<?= $this->getPart('header') ?>
-<?= $this->content ?>
-<?= $this->getPart('footer') ?>
-<?= $this->getDbLogs() ?>
+<?php $this->getPart('header') ?>
+
+<?php echo $this->content ?>
+
+<?php $this->getPart('footer'); ?>
+
+
