@@ -46,7 +46,7 @@ class View
     }
     public function getMeta()
     {
-        $out = "<title>".$this->meta['title']."</title>";
+        $out = "<title>".App::$app->getProperty('site_name').'::'.$this->meta['title']."</title>";
         $out .= "<meta name=\"description\" content=\"{$this->meta['description']}\">". PHP_EOL;
         $out .= "<meta name=\"keywords\" content=\"{$this->meta['keywords']}\">". PHP_EOL;
         return $out;

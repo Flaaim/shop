@@ -2,7 +2,7 @@
 <!doctype html>
 	<html lang="en">
 	<head>
-        <base href="/">
+        <base href="<?= base_url() ?>">
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,20 +51,7 @@
 									<li><a class="dropdown-item" href="#">Регистрация</a></li>
 								</ul>
 							</div>
-
-							<div class="dropdown d-inline-block">
-								<a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
-									<img src="<?= PATH ?>/assets/img/ru.png" alt="">
-								</a>
-								<ul class="dropdown-menu" id="languages">
-									<li>
-										<button class="dropdown-item" data-langcode="en">
-											<img src="<?= PATH ?>/assets/img/en.png" alt="">
-										English</button>
-									</li>
-								</ul>
-							</div>
-
+							<?php new App\widgets\languages\Language(); ?>
 						</div>
 					</div>
 				</div>
@@ -75,7 +62,7 @@
 
 					<nav class="navbar navbar-expand-lg navbar-light">
 						<div class="container-fluid p-0">
-							<a class="navbar-brand" href="index.html">Shop Brand</a>
+							<a class="navbar-brand" href="<?= base_url() ?>"><?= \wfm\App::$app->getProperty('site_name') ?></a>
 							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
 							</button>

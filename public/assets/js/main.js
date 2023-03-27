@@ -39,4 +39,10 @@ $(function() {
 		}
 	});
 
+	$('#languages .dropdown-item').click(function(){
+		const lang_code = $(this).data('langcode');
+		
+		window.location = PATH + '/language/change?lang='+ lang_code;
+	});
+
 });

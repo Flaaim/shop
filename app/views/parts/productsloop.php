@@ -2,10 +2,10 @@
         <div class="col-lg-4 col-sm-6 mb-3">
             <div class="product-card">
                 <div class="product-tumb">
-                    <a href="<?= $product['slug'] ?>"><img src="<?= PATH ?>/assets/img/products/iphone_1.jpg" alt=""></a>
+                    <a href="product/<?= $product['slug'] ?>"><img src="<?= PATH ?>/assets/img/products/iphone_1.jpg" alt=""></a>
                 </div>
                 <div class="product-details">
-                    <h4><a href="<?= $product['slug'] ?>"><?= $product['title'] ?></a></h4>
+                    <h4><a href="product/<?= $product['slug'] ?>"><?= $product['title'] ?></a></h4>
                     <p><?= $product['exerpt'] ?></p>
                     <div class="product-bottom-details d-flex justify-content-between">
                         <div class="product-price">
