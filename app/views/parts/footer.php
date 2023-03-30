@@ -4,12 +4,12 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-3 col-6">
-							<h4>Информация</h4>
+							<h4><?= __('tpl_information') ?></h4>
 							<ul class="list-unstyled">
-								<li><a href="#">Главная</a></li>
-								<li><a href="#">О магазине</a></li>
-								<li><a href="#">Оплата и доставка</a></li>
-								<li><a href="#">Контакты</a></li>
+								<li><a href="#"><?= __('tpl_homepage') ?></a></li>
+								<li><a href="#"><?= __('tpl_about') ?></a></li>
+								<li><a href="#"><?= __('tpl_payment_and_delivery') ?></a></li>
+								<li><a href="#"><?= __('tpl_contacts') ?></a></li>
 							</ul>
 						</div>
 
@@ -23,7 +23,7 @@
 						</div>
 
 						<div class="col-md-3 col-6">
-							<h4>Контакты</h4>
+							<h4><?= __('tpl_contacts') ?></h4>
 							<ul class="list-unstyled">
 								<li><a href="tel:5551234567">555 123-45-67</a></li>
 								<li><a href="tel:5551234567">555 123-45-68</a></li>
@@ -32,7 +32,7 @@
 						</div>
 
 						<div class="col-md-3 col-6">
-							<h4>Мы в сети</h4>
+							<h4><?= __('tpl_social') ?></h4>
 							<div class="footer-icons">
 								<a href="#"><i class="fab fa-facebook-f"></i></a>
 								<a href="#"><i class="fab fa-youtube"></i></a>

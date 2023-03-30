@@ -27,7 +27,7 @@
 						<div class="col text-end icons">
 							<form>
 								<div class="input-group" id="search">
-									<input type="text" class="form-control" placeholder="Search..." name="s">
+									<input type="text" class="form-control" placeholder="<?= __('tpl_search') ?>" name="s">
 									<button class="btn close-search" type="button"><i class="fas fa-times"></i></i></button>
 									<button class="btn" type="submit"><i class="fas fa-search"></i></button>
 								</div>
@@ -47,8 +47,8 @@
 									<i class="far fa-user"></i>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#">Авторизация</a></li>
-									<li><a class="dropdown-item" href="#">Регистрация</a></li>
+									<li><a class="dropdown-item" href="#"><?= __('tpl_login') ?></a></li>
+									<li><a class="dropdown-item" href="#"><?= __('tpl_signup') ?></a></li>
 								</ul>
 							</div>
 							<?php new App\widgets\languages\Language(); ?>

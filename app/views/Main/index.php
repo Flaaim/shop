@@ -31,7 +31,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h3 class="section-title">Рекомендуемые товары</h3>
+            <h3 class="section-title"><?= __('main_index_featured_products') ?></h3>
         </div>
             <?php $this->getPart("productsloop", compact('products'));  ?>
     </div>
@@ -42,34 +42,34 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h3 class="section-title">Наши преимущества</h3>
+            <h3 class="section-title"><?= __('main_index_our_advantages') ?></h3>
         </div>
 
         <div class="col-md-3 col-sm-6">
             <div class="service-item">
                 <p class="text-center"><i class="fas fa-shipping-fast"></i></p>
-                <p>Прямые поставки от производителей</p>
+                <p><?= __('main_index_deliveries') ?></p>
             </div>
         </div>
 
         <div class="col-md-3 col-sm-6">
             <div class="service-item">
                 <p class="text-center"><i class="fas fa-cubes"></i></p>
-                <p>Широкий ассортимент товара</p>
+                <p><?= __('main_index_range_of_goods') ?></p>
             </div>
         </div>
 
         <div class="col-md-3 col-sm-6">
             <div class="service-item">
                 <p class="text-center"><i class="fas fa-hand-holding-usd"></i></p>
-                <p>Приятные и конкуретные цены</p>
+                <p><?= __('main_index_competitive_prices') ?></p>
             </div>
         </div>
 
         <div class="col-md-3 col-sm-6">
             <div class="service-item">
                 <p class="text-center"><i class="fas fa-user-cog"></i></p>
-                <p>Профессиональная консультация и сервис</p>
+                <p><?= __('main_index_advice_and_service') ?></p>
             </div>
         </div>
 

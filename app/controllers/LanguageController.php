@@ -8,7 +8,8 @@ class LanguageController extends AppController
 {
     public function changeAction()
     {
-        $lang = $_GET['lang'] ?? null;
+        $lang = get('lang', 's');
+        
         if($lang){
             if(array_key_exists($lang, \wfm\App::$app->getProperty('languages'))){
                 $url = trim(str_replace(PATH, '', $_SERVER['HTTP_REFERER']), '/');
@@ -24,9 +25,7 @@ class LanguageController extends AppController
                     if($lang != \wfm\App::$app->getProperty('language')['code']){
                         array_unshift($url_parts, $lang);
                     }
-                    
                 }
-                
                 $url = PATH .'/'.implode('/', $url_parts);
                 redirect($url);
             }
