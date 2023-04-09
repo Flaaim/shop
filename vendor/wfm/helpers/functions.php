@@ -21,7 +21,7 @@ function redirect($http = false)
 
 function base_url()
 {
-    return PATH . '/'.(\wfm\App::$app->getProperty('lang') ? \wfm\App::$app->getProperty('lang') : "");
+    return PATH . '/'.(\wfm\App::$app->getProperty('lang') ? \wfm\App::$app->getProperty('lang').'/' : "");
 }
 function get($key, $type = 'i')
 {
@@ -54,3 +54,14 @@ function __($key){
 function ___($key){
     return \Wfm\Language::get($key);
 }
+
+function get_cart_icon($id)
+{
+    if(!empty($_SESSION['cart']) && array_key_exists($id, $_SESSION['cart'])){
+        $icon = "<i id='product-{$id}' class='fas fa-shopping-bag'></i>";
+    }else{
+        $icon = "<i id='product-{$id}' class='fas fa-shopping-cart'></i>";
+    }
+    return $icon;
+}
+

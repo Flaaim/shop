@@ -14,6 +14,7 @@ class App
     {
         $query = trim(urldecode($_SERVER['REQUEST_URI']), '/');
         self::$app = Registry::getInstance();
+        session_start();
         $this->getParams();
         new ErrorHandler();
         Router::dispatch($query);

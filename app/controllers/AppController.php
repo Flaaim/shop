@@ -6,6 +6,7 @@ use Wfm\Controller;
 use App\models\AppModel;
 use App\widgets\languages\Language;
 use Wfm\App;
+use App\Models\Cart;
 
 class AppController extends Controller
 {
@@ -17,5 +18,6 @@ class AppController extends Controller
         App::$app->setProperty('language', Language::getLanguage(App::$app->getProperty('languages')));
         $lang = App::$app->getProperty('language');
         \Wfm\Language::load($lang['code'], $this->route);
+        
     }
 }

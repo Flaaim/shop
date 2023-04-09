@@ -12,4 +12,18 @@ return [
     'tpl_payment_and_delivery' => 'Оплата и Доставка',
     'tpl_contacts' => 'Контакты',
     'tpl_social' => 'Мы в сети',
+
+    // CART
+
+    'tpl_cart_title' => 'Корзина',
+    'tpl_cart_foto' => 'Фото',
+    'tpl_cart_product' => 'Продукт',
+    'tpl_cart_qty' => 'Количество',
+    'tpl_cart_price' => 'Цена',
+    'tpl_cart_continue' => 'Продолжить покупки',
+    'tpl_cart_clear' => 'Очистить корзину',
+    'tpl_cart_checkout' => 'Формить заказ',
+    'tpl_cart_total' => 'Общее количество',
+    'tpl_cart_total_price' => 'Общая цена',
+    'tpl_cart_empty' => 'Пустая корзина',
 ];

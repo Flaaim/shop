@@ -39,4 +39,17 @@ abstract class Controller
             'keywords' => $keywords,
         ];
     }
+    public function isAjax(): bool
+    {
+        return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
+    }
+    public function loadView($view, $vars = [])
+    {
+        if(is_array($vars)){
+            extract($vars);
+        }
+        $prefix = APP. "/views/{$this->route['controller']}/{$view}.php";
+        require($prefix);
+        die();
+    }
 }

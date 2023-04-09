@@ -2,7 +2,7 @@
         <div class="col-lg-4 col-sm-6 mb-3">
             <div class="product-card">
                 <div class="product-tumb">
-                    <a href="product/<?= $product['slug'] ?>"><img src="<?= PATH ?>/assets/img/products/iphone_1.jpg" alt=""></a>
+                    <a href="product/<?= $product['slug'] ?>"><img src="<?= PATH ?>/assets/img/products/<?= $product['img'] ?>" alt=""></a>
                 </div>
                 <div class="product-details">
                     <h4><a href="product/<?= $product['slug'] ?>"><?= $product['title'] ?></a></h4>
@@ -16,7 +16,7 @@
                             
                         </div>
                         <div class="product-links">
-                            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                            <a href="cart/add?id=<?= $product['id'] ?>" class="add-to-cart" data-id="<?= $product['id'] ?>"><?= get_cart_icon($product['id']) ?></a>
                             <a href="#"><i class="far fa-heart"></i></a>
                         </div>
                     </div>
