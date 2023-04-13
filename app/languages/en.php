@@ -3,8 +3,10 @@
 return [
     //Header
     'tpl_search' => 'Search...',
-    'tpl_login' => 'Authorization',
+    'tpl_login' => 'Sign in',
     'tpl_signup' => 'Sign up',
+    'tpl_logout' => 'Logout',
+    'tpl_cabinet' => 'Cabinet',
 
     //Footer
     'tpl_information' => 'Information',
@@ -25,4 +27,6 @@ return [
     'tpl_cart_total' => 'Total',
     'tpl_cart_total_price' => 'Total price',
     'tpl_cart_empty' => 'Empty basket',
+
+    'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>'
 ];

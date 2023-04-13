@@ -39,11 +39,9 @@ class Menu
         $cache = Cache::getInstance();
         $this->menuHtml = $cache->get("{$this->cacheKey}_{$this->language['code']}");
         if(!$this->menuHtml){
-            $this->data = R::getAssoc("SELECT category.*, category_description.* FROM category 
-            LEFT JOIN category_description ON category_description.category_id = category.id
-            WHERE language_id = ?", [$this->language['id']]);
-                    
+            $this->data = \wfm\App::$app->getProperty("categories_{$this->language['code']}");
             $this->tree = $this->getTree();
+            
             $this->menuHtml = $this->getMenuHtml($this->tree);
             if($this->cache){
                     $cache->set("{$this->cacheKey}_{$this->language['code']}", $this->menuHtml, $this->cache);
@@ -64,6 +62,7 @@ class Menu
                 $data[$node['parent_id']]['children'][$key] = &$node;
             }
         }
+        
         return $tree;
     }
 

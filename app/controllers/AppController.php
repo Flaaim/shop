@@ -7,6 +7,7 @@ use App\models\AppModel;
 use App\widgets\languages\Language;
 use Wfm\App;
 use App\Models\Cart;
+use RedBeanPHP\R;
 
 class AppController extends Controller
 {
@@ -18,6 +19,9 @@ class AppController extends Controller
         App::$app->setProperty('language', Language::getLanguage(App::$app->getProperty('languages')));
         $lang = App::$app->getProperty('language');
         \Wfm\Language::load($lang['code'], $this->route);
-        
+        $categories = R::getAssoc("SELECT * FROM category JOIN category_description 
+        ON category.id = category_description.category_id WHERE category_description.language_id = ? 
+        ", [$lang['id']]);
+        \wfm\App::$app->setProperty("categories_{$lang['code']}", $categories);
     }
 }

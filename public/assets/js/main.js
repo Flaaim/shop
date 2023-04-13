@@ -88,6 +88,7 @@ $(function() {
 	});
 	$("#get-cart").on('click', function(e){
 		e.preventDefault();
+		
 		$.ajax({
 			url:"cart/show",
 			type:"GET",

@@ -5,7 +5,9 @@ return [
     'tpl_search' => 'Поиск...',
     'tpl_login' => 'Авторизация',
     'tpl_signup' => 'Регистрация',
-    
+    'tpl_logout' => 'Выход',
+    'tpl_cabinet' => 'Кабинет',
+
     'tpl_information' => 'Информация',
     'tpl_homepage' => 'Главная',
     'tpl_about' => 'О магазине',
@@ -26,4 +28,7 @@ return [
     'tpl_cart_total' => 'Общее количество',
     'tpl_cart_total_price' => 'Общая цена',
     'tpl_cart_empty' => 'Пустая корзина',
+
+
+    'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>'
 ];
