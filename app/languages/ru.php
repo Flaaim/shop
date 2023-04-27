@@ -30,5 +30,9 @@ return [
     'tpl_cart_empty' => 'Пустая корзина',
 
 
-    'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>'
+    'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>',
+
+    //Поиск
+    'tpl_search_title' => 'Поиск',
+    'tpl_search_description' => 'Поиск по: ',
 ];

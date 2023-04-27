@@ -45,6 +45,12 @@ $(function() {
 		window.location = PATH + '/language/change?lang='+ lang_code;
 	});
 
+	$("#input-sort").change(function(){
+		window.location = PATH + window.location.pathname + '?'+ $(this).val();
+	});
+	$("#input-sort-count").change(function(){
+		window.location = PATH + window.location.pathname + '?' + $(this).val();
+	});
 	// CART 
 	function showCart(cart) {
 		$("#cart-modal .modal-cart-content").html(cart);

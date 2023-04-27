@@ -7,7 +7,7 @@ use App\Models\AppModel;
 
 class Breadcrumbs extends AppModel
 {
-    public static function getBreadcrumbs($category_id, $name)
+    public static function getBreadcrumbs($category_id, $name = '')
     {
         $lang = \Wfm\App::$app->getProperty('language');
         

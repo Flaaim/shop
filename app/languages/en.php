@@ -28,5 +28,9 @@ return [
     'tpl_cart_total_price' => 'Total price',
     'tpl_cart_empty' => 'Empty basket',
 
-    'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>'
+    'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>',
+
+    //Поиск
+    'tpl_search_title' => 'Search',
+    'tpl_search_description' => 'Search by: ',
 ];
