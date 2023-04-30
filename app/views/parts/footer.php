@@ -1,18 +1,14 @@
 
 <footer>
+			
 			<section class="footer">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-3 col-6">
 							<h4><?= __('tpl_information') ?></h4>
-							<ul class="list-unstyled">
-								<li><a href="#"><?= __('tpl_homepage') ?></a></li>
-								<li><a href="#"><?= __('tpl_about') ?></a></li>
-								<li><a href="#"><?= __('tpl_payment_and_delivery') ?></a></li>
-								<li><a href="#"><?= __('tpl_contacts') ?></a></li>
-							</ul>
-						</div>
+							<?php new App\Widgets\Page\Page(['cache' => 0]) ?>
 
+						</div>
 						<div class="col-md-3 col-6">
 							<h4>Время работы</h4>
 							<ul class="list-unstyled">
