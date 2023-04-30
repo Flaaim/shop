@@ -128,4 +128,66 @@ $(function() {
 		})
 	});
 	// CART
+
+	//FEATURE
+	$(".product-card").on('click', '.add-to-wishlist', function(e){
+		e.preventDefault();
+		const id = $(this).data('id');
+		const $this = $(this);
+
+		$.ajax({
+			url: "wishlist/add",
+			type: "GET",
+			data: {id:id},
+			success: function(res){
+				res = JSON.parse(res);
+				if(res.result == 'success'){
+					$this.removeClass("add-to-wishlist").addClass('delete-from-wishlist');
+					$this.children().removeClass("far fa-heart").addClass("fas fa-heart");
+					Swal.fire(
+						res.text,
+						'',
+						res.result
+					)
+				}
+			},
+			error: function(){
+				alert("ERROR");
+			}
+		})
+	})
+
+	$(".product-card").on('click', '.delete-from-wishlist', function(e){
+		e.preventDefault();
+		const id = $(this).data('id');
+		const $this = $(this);
+
+		$.ajax({
+			url: "wishlist/delete",
+			type: "GET",
+			data: {id:id},
+			success: function(res){
+				res = JSON.parse(res);
+				const url = window.location.href
+				if(url.includes('wishlist')){
+					if(res.result == 'success'){
+						$this.removeClass("delete-from-wishlist").addClass('add-to-wishlist');
+						$this.children().removeClass("fas fa-heart").addClass("far fa-heart");
+					}
+					window.location = url;
+				}else{
+					if(res.result == 'success'){
+						$this.removeClass("delete-from-wishlist").addClass('add-to-wishlist');
+						$this.children().removeClass("fas fa-heart").addClass("far fa-heart");
+					}
+				}
+
+			},
+			error: function(){
+				alert("ERROR");
+			}
+		})
+	})
+	
+	//FEATURE
 });

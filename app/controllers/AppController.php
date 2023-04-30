@@ -8,6 +8,7 @@ use App\widgets\languages\Language;
 use Wfm\App;
 use App\Models\Cart;
 use RedBeanPHP\R;
+use App\Models\Wishlist;
 
 class AppController extends Controller
 {
@@ -23,5 +24,7 @@ class AppController extends Controller
         ON category.id = category_description.category_id WHERE category_description.language_id = ? 
         ", [$lang['id']]);
         \wfm\App::$app->setProperty("categories_{$lang['code']}", $categories);
+        \Wfm\App::$app->setProperty('wishlist', Wishlist::get_wishlist_ids());
+        
     }
 }

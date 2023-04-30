@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="<?= PATH ?>/assets/bootstrap/css/bootstrap.min.css">
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 		<link rel="stylesheet" href="<?= PATH ?>/assets/css/main.css">
         <link rel="stylesheet" href="<?= PATH ?>/assets/css/magnific-popup.css">
@@ -42,7 +43,7 @@
 							</a>
 
 
-							<a href="#"><i class="far fa-heart"></i></a>
+							<a href="wishlist"><i class="far fa-heart"></i></a>
 
 							<div class="dropdown d-inline-block">
 								<a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
