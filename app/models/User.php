@@ -1,0 +1,90 @@
+<?php
+
+namespace App\Models;
+
+use App\Models\AppModel;
+use Valitron\Validator;
+use RedBeanPHP\R;
+
+class User extends AppModel
+{
+    public array $attributes = [
+        'email' => '',
+        'name' => '',
+        'password' => '',
+        'address' => ''
+    ];
+
+    public array $rules = [
+        'required' => ['email', 'name', 'password', 'address', 'confirm_password'],
+        'email' => ['email'],
+        'equals' => [
+            ['password', 'confirm_password']
+        ],
+        'lengthMin' => [
+            ['password', 6]
+        ]
+    ];
+
+    public array $labels = [
+        'name' => 'tpl_signup_label_name',
+        'email' => 'tpl_signup_label_email',
+        'address' => 'tpl_signup_label_address',
+        'password' => 'tpl_signup_label_password',
+        'confirm_password' => 'tpl_signup_label_confirm_password'
+    ];
+
+
+    public static function checkAuth(): bool
+    {
+        return isset($_SESSION['user']);
+    }
+    public function validate($data)
+    {
+        $lang = \Wfm\App::$app->getProperty('language');
+        Validator::langDir(APP."/languages/validate/lang");
+        Validator::lang($lang['code']);
+        $validator = new Validator($data);
+        $validator->rules($this->rules);
+        $this->attributes['password'] = password_hash($this->attributes['password'], PASSWORD_DEFAULT);
+        $validator->labels($this->getLabels());
+        if($validator->validate()){
+            return true;
+        }else{
+            $this->errors = $validator->errors();
+            $_SESSION['form_data'] = $data;
+            return false;
+        }
+    }
+
+    public function getErrors()
+    {
+
+        $errors = "<ul>";
+        foreach($this->errors as $error){
+            foreach($error as $item){
+                $errors .= "<li>{$item}</li>";
+            }
+        }
+        $errors .= "</ul>";
+        $_SESSION['errors'] = $errors;
+    }
+    public function getLabels()
+    {
+        $labels = [];
+        foreach($this->labels as $k => $v){
+            $labels[$k] = ___($v);
+        }
+        return $labels;
+    }
+    public function checkUnique($text_error = ''): bool
+    {
+        $user = R::findOne('user', 'email = ?', [$this->attributes['email']]);
+        if($user){
+            $this->errors['unique'][] = 'Этот емайл уже занят';
+            return false;
+        }else{
+            return true;
+        }
+    }
+}

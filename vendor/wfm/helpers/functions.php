@@ -18,7 +18,10 @@ function redirect($http = false)
     header("Location: $redirect");
     die;
 }
-
+function h($data)
+{
+    return htmlspecialchars($data);
+}
 function base_url()
 {
     return PATH . '/'.(\wfm\App::$app->getProperty('lang') ? \wfm\App::$app->getProperty('lang').'/' : "");
@@ -63,5 +66,10 @@ function get_cart_icon($id)
         $icon = "<i id='product-{$id}' class='fas fa-shopping-cart'></i>";
     }
     return $icon;
+}
+
+function get_field_values($name)
+{
+    return isset($_SESSION['form_data'][$name]) ? h($_SESSION['form_data'][$name]) : '';
 }
 
