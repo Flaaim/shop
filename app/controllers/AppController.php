@@ -25,6 +25,6 @@ class AppController extends Controller
         ", [$lang['id']]);
         \wfm\App::$app->setProperty("categories_{$lang['code']}", $categories);
         \Wfm\App::$app->setProperty('wishlist', Wishlist::get_wishlist_ids());
-        
+        debug($_SESSION);
     }
 }

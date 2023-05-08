@@ -29,4 +29,28 @@ class UserController extends AppController
             
         }
     }
+    public function signinAction()
+    {
+        if(User::checkAuth()){
+            redirect(base_url());
+        }
+
+        if(!empty($_POST)){
+            
+            if($this->model->login()){
+                
+               redirect(base_url());
+            }else{
+                redirect(base_url(). 'user/signin');
+            }
+        }
+    }
+
+    public function logoutAction()
+    {
+        unset($_SESSION['user']);
+        redirect(base_url().'user/signin');
+    }
+
+        
 }

@@ -87,4 +87,38 @@ class User extends AppModel
             return true;
         }
     }
+
+    public function login($is_admin = false): bool
+    {
+        $email = post('email');
+        $password = post('password');
+
+        if($email && $password){
+            if($is_admin){
+               $user = R::findOne('user', "email = ? AND role = 'admin'", [$email]);
+            }else{
+                $user = R::findOne('user', "email = ?", [$email]);
+            }
+            if($user){
+                if(password_verify($password, $user->password)){
+                    foreach($user as $key => $property){
+                        if($key != 'password'){
+                            $_SESSION['user'][$key] = $property;
+                        }
+                       
+                    }
+                    
+                    $_SESSION['success'] = ___('tpl_signin_login_success');
+                    return true;
+                }
+                $_SESSION['errors'] = ___('tpl_signin_error_password');
+                return false;
+            }
+            $_SESSION['errors'] = ___('tpl_signin_error_email');
+            return false;
+        }else{
+            $_SESSION['errors'] = ___('tpl_signin_error_not_found');
+            return false;
+        }  
+    }
 }

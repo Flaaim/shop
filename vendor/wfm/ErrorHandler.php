@@ -31,6 +31,7 @@ class ErrorHandler
     public function fatalErrorHandler()
     {
         $error = error_get_last();
+        debug($error, 1);
         if (!empty($error) && $error['type'] & (E_ERROR | E_PARSE | E_COMPILE_ERROR)) {
             $this->logError($error['message'], $error['file'], $error['line']);
             ob_end_clean();

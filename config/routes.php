@@ -11,6 +11,8 @@ Router::add('^(?P<lang>[a-z]+)?/?category/(?P<slug>[a-z0-9-]+)/?$', ['controller
 Router::add('^(?P<lang>[a-z]+)?/?page/(?P<slug>[a-z0-9-]+)/?$', ['controller' => 'Page', 'action' => 'view']);
 
 Router::add('^(?P<lang>[a-z]+)?/?user/signup/?$', ['controller' => 'User', 'action' => 'signup']);
+Router::add('^(?P<lang>[a-z]+)?/?user/signin/?$', ['controller' => 'User', 'action' => 'signin']);
+Router::add('^(?P<lang>[a-z]+)?/?user/logout/?$', ['controller' => 'User', 'action' => 'logout']);
 
 
 Router::add('^(?P<lang>[a-z]+)?/?wishlist/?$', ['controller' => 'Wishlist', 'action' => 'index']);
