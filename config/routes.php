@@ -9,6 +9,7 @@ Router::add('^admin/(?P<controller>[a-z-]+)/(?P<action>[a-z-]+)/?$', ['admin_pre
 Router::add('^(?P<lang>[a-z]+)?/?product/(?P<slug>[a-z0-9-]+)/?$', ['controller' => 'Product', 'action' => 'view']);
 Router::add('^(?P<lang>[a-z]+)?/?category/(?P<slug>[a-z0-9-]+)/?$', ['controller' => 'Category', 'action' => 'view']);
 Router::add('^(?P<lang>[a-z]+)?/?page/(?P<slug>[a-z0-9-]+)/?$', ['controller' => 'Page', 'action' => 'view']);
+Router::add('^(?P<lang>[a-z]+)?/?cart/view/?$', ['controller' => 'Cart', 'action' => 'view']);
 
 Router::add('^(?P<lang>[a-z]+)?/?user/signup/?$', ['controller' => 'User', 'action' => 'signup']);
 Router::add('^(?P<lang>[a-z]+)?/?user/signin/?$', ['controller' => 'User', 'action' => 'signin']);

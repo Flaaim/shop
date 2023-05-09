@@ -51,17 +51,19 @@ $(function() {
 	$("#input-sort-count").change(function(){
 		window.location = PATH + window.location.pathname + '?' + $(this).val();
 	});
+
+
 	// CART 
 	function showCart(cart) {
 		$("#cart-modal .modal-cart-content").html(cart);
 		const myModalEL = document.querySelector("#cart-modal");
 		const modal = bootstrap.Modal.getOrCreateInstance(myModalEL);
+		modal.show();
 		if($(".cart-qty").text()){
 			$(".count-items").text($(".cart-qty").text());
 		}else{
 			$(".count-items").text(0);
 		}
-		modal.show();
 	}
 
 	$("#cart-modal .modal-cart-content").on('click', '.del-item', function(e){
@@ -73,7 +75,13 @@ $(function() {
 			data:{id:id},
 			success: function(res){
 				$(".add-to-cart #product-"+id).removeClass('fas fa-shopping-bag').addClass('fas fa-shopping-cart');
-				showCart(res)
+				let url = window.location.href
+ 				if(url.includes('cart/view')){
+					window.location = url;
+				}else{
+					showCart(res)
+				}
+				
 			},
 			error: function(){
 				alert("Error");
@@ -86,6 +94,7 @@ $(function() {
 			url: "cart/clear",
 			type: "GET",
 			success: function(res){
+				$(".add-to-cart i").removeClass("fas fa-shopping-bag").addClass("fas fa-shopping-cart");
 				showCart(res);
 			},error: function(){
 				alert("Error");

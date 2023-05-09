@@ -5,6 +5,8 @@ namespace App\controllers;
 use App\controllers\AppController;
 use RedBeanPHP\R;
 use Wfm\App;
+use App\Models\User;
+use App\Models\Order;
 
 class CartController extends AppController
 {
@@ -57,5 +59,46 @@ class CartController extends AppController
         unset($_SESSION['cart.sum']);
         $this->loadView('cart_modal');
         return true;
+    }
+
+    public function viewAction()
+    {
+        
+        $this->setMeta(___('tpl_cart_view_title'), ___('tpl_cart_view_description'), '');
+    }
+
+    public function checkoutAction()
+    {
+        if(!empty($_POST)){
+            $data = $_POST;
+            if(!User::checkAuth()){
+                //регистрируем пользователя
+                $user = new User;
+                $data = $_POST;
+                $user->load($data);
+                if($user->validate($data) && $user->checkUnique()){
+                    if(!$user_id = $user-save('user')){
+                        $_SESSION['errors'] = ___('cart_checkout_error_register');
+                        redirect();
+                    }
+                } else {
+                    $user->getErrors();
+                    redirect();
+                }
+            }
+            //сохранение заказа
+            $data['user_id'] = $user_id ?? $_SESSION['user']['id'];
+            $data['notation'] = post('notation');
+            $user_email = $_SESSION['user']['email'] ?? post('email');
+            if(!$order_id = Order::saveOrder($data)){
+                $_SESSION['errors'] = ___('tpl_cart_checkout_save_error_order');
+            } else{
+                //выгружаем заказ, очищаем козрзину
+
+                $_SESSION['success'] = ___('tpl_cart_checkout_order_success');
+            }
+        }
+        redirect();
+        
     }
 }

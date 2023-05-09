@@ -16,7 +16,7 @@
                     <td>
                         <a href="#"><img src="<?= PATH ?>/assets/img/products/<?= $item['img'] ?>" alt=""></a>
                     </td>
-                    <td><a href="<?= $item['slug'] ?>"><?= $item['title'] ?></a></td>
+                    <td><a href="product/<?= $item['slug'] ?>"><?= $item['title'] ?></a></td>
                     <td><?= $item['qty'] ?></td>
                     <td>$<?= $item['price'] ?></td>
                     <td><a href="cart/delete?id=<?= $id ?>" data-id="<?= $id ?>" class="del-item"><i class="fas fa-trash"></i></a></td>
@@ -36,7 +36,7 @@
     <div class="modal-footer">
         <button type="button" class="btn btn-danger ripple" data-bs-dismiss="modal"><?= __('tpl_cart_continue') ?></button>
         <button type="button" id="clear-cart" class="btn btn-danger"><?= __('tpl_cart_clear') ?></button>
-        <button type="button" class="btn btn-primary"><?= __('tpl_cart_checkout') ?></button>
+        <a href="cart/view" class="btn btn-primary"  ><?= __('tpl_cart_checkout') ?></a>
     </div>
 <?php else: ?>
     <h4><?= __('tpl_cart_empty') ?><h4>
