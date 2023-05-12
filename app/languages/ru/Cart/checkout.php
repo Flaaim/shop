@@ -9,4 +9,5 @@ return [
 
     'tpl_cart_checkout_save_error_order' => 'Ошибка сохранения заказа',
     'tpl_cart_checkout_order_success' => 'Заказ успешно сохранен',
+    'tpl_cart_checkout_mail_subject' => 'Ваш заказа №%d успешно оплачен',
 ];

@@ -9,4 +9,5 @@ return [
 
     'tpl_cart_checkout_save_error_order' => 'Save order error',
     'tpl_cart_checkout_order_success' => 'Order sucessfully save',
+    'tpl_cart_checkout_mail_subject' => 'Your order №%d ',
 ];

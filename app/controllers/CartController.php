@@ -94,8 +94,12 @@ class CartController extends AppController
                 $_SESSION['errors'] = ___('tpl_cart_checkout_save_error_order');
             } else{
                 //выгружаем заказ, очищаем козрзину
-
+                Order::sendOrderEmail($user_email, $order_id, 'email_admin');
+                Order::sendOrderEmail(\Wfm\App::$app->getProperty('admin_email'), $order_id, 'email_admin');
                 $_SESSION['success'] = ___('tpl_cart_checkout_order_success');
+                unset($_SESSION['cart']);
+                unset($_SESSION['cart.sum']);
+                unset($_SESSION['cart.qty']);
             }
         }
         redirect();
