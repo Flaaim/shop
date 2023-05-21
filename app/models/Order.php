@@ -44,16 +44,13 @@ class Order extends AppModel
                 $order_download->download_id = $download_id;
 
                 R::store($order_download);
-            }else{
+            }
                 $sum = $product['qty'] * $product['price'];
                 $sql_part .= "(?,?,?,?,?,?,?),";
                 $binds = array_merge($binds, [$order_id, $product_id, $product['title'], $product['slug'], $product['qty'], $product['price'], $sum]);
-                $sql_part = rtrim($sql_part, ',');
-
-                R::exec("INSERT INTO order_product (order_id, product_id, title, slug, qty, price, sum) VALUES $sql_part", $binds);
-            }
-
         }
+        $sql_part = rtrim($sql_part, ',');
+        R::exec("INSERT INTO order_product (order_id, product_id, title, slug, qty, price, sum) VALUES $sql_part", $binds);
     }
 
     public static function sendOrderEmail($user_email, $order_id, $tpl): bool

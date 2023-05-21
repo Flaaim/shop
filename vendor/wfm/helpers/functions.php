@@ -73,3 +73,14 @@ function get_field_values($name)
     return isset($_SESSION['form_data'][$name]) ? h($_SESSION['form_data'][$name]) : '';
 }
 
+function getActiveLink($link)
+{
+    $url = $_SERVER['REQUEST_URI'];
+    $url_parts = trim(parse_url($url, PHP_URL_PATH), '/');
+    $url_parts = explode('/', $url_parts);
+    $count = count($url_parts) - 1;
+    // debug($url_parts);
+    if($link == $url_parts[$count]){
+        echo "active";
+    }
+}

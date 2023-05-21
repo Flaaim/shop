@@ -33,4 +33,11 @@ return [
     //Поиск
     'tpl_search_title' => 'Search',
     'tpl_search_description' => 'Search by: ',
+
+    // Cabinet sidebar
+    'tpl_user_cabinet_sidebar_cabinet' => 'Cabinet',
+    'tpl_user_cabinet_sidebar_orders' => 'Orders',
+    'tpl_user_cabinet_sidebar_files' => 'Files',
+    'tpl_user_cabinet_sidebar_credentials' => 'Credentials',
+    'tpl_user_cabinet_sidebar_logout' => 'Logout',
 ];

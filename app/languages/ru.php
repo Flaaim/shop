@@ -35,4 +35,12 @@ return [
     //Поиск
     'tpl_search_title' => 'Поиск',
     'tpl_search_description' => 'Поиск по: ',
+
+    // Кабинет sidebar
+    
+    'tpl_user_cabinet_sidebar_cabinet' => 'Кабинет',
+    'tpl_user_cabinet_sidebar_orders' => 'Заказы',
+    'tpl_user_cabinet_sidebar_files' => 'Файлы',
+    'tpl_user_cabinet_sidebar_credentials' => 'Учетные данные',
+    'tpl_user_cabinet_sidebar_logout' => 'Выход',
 ];

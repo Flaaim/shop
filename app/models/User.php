@@ -121,4 +121,24 @@ class User extends AppModel
             return false;
         }  
     }
-}
+
+    public function getOrders($user_id): array
+    {
+        return R::getAll("SELECT * FROM orders WHERE user_id = ? ORDER by id DESC",[$user_id]);
+    }
+    public function getOrder($id): array
+    {
+        return R::getAll("SELECT * FROM orders JOIN order_product ON orders.id = order_product.order_id 
+        WHERE orders.id = ?", [$id]);
+    }
+    public function getFiles($user_id, $lang): array
+    {
+        return R::getAll("SELECT * FROM order_download JOIN download ON order_download.download_id = download.id
+        JOIN download_description ON download.id = download_description.download_id WHERE user_id = ? AND language_id = ? AND status = 1", [$user_id, $lang['id']]);
+    }
+
+    public function get_user_file($id, $lang): array
+    {
+        return R::getRow("SELECT * FROM order_download JOIN download ON order_download.download_id = download.id JOIN download_description ON download.id = download_description.download_id WHERE status = 1 AND download_description.language_id = ? AND order_download.user_id = ? AND download.id = ?", [$lang['id'], $_SESSION['user']['id'], $id]);
+    }
+}   

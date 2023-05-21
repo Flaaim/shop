@@ -12,6 +12,10 @@ Router::add('^(?P<lang>[a-z]+)?/?page/(?P<slug>[a-z0-9-]+)/?$', ['controller' =>
 Router::add('^(?P<lang>[a-z]+)?/?cart/view/?$', ['controller' => 'Cart', 'action' => 'view']);
 
 Router::add('^(?P<lang>[a-z]+)?/?user/signup/?$', ['controller' => 'User', 'action' => 'signup']);
+Router::add('^(?P<lang>[a-z]+)?/?user/orders/?$', ['controller' => 'User', 'action' => 'orders']);
+Router::add('^(?P<lang>[a-z]+)?/?user/files/?$', ['controller' => 'User', 'action' => 'files']);
+Router::add('^(?P<lang>[a-z]+)?/?user/order/?$', ['controller' => 'User', 'action' => 'view']);
+Router::add('^(?P<lang>[a-z]+)?/?user/cabinet/?$', ['controller' => 'User', 'action' => 'cabinet']);
 Router::add('^(?P<lang>[a-z]+)?/?user/signin/?$', ['controller' => 'User', 'action' => 'signin']);
 Router::add('^(?P<lang>[a-z]+)?/?user/logout/?$', ['controller' => 'User', 'action' => 'logout']);
 

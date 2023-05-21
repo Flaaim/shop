@@ -54,7 +54,7 @@
 									<li><a class="dropdown-item" href="user/signin"><?= __('tpl_login') ?></a></li>
 									<li><a class="dropdown-item" href="user/signup"><?= __('tpl_signup') ?></a></li>
 								<?php else: ?>
-									<li><a class="dropdown-item" href="#"><?= __('tpl_cabinet') ?></a></li>	
+									<li><a class="dropdown-item" href="user/cabinet"><?= __('tpl_cabinet') ?></a></li>	
 									<li><a class="dropdown-item" href="user/logout"><?= __('tpl_logout') ?></a></li>
 								<?php endif ?>
 								</ul>
